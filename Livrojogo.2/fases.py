@@ -21,8 +21,8 @@ class FaseInicial(Fase):
 
 class InvestigarCelular(Fase):
     def __init__(self):
-        self.__descricao = "Você desbloqueia o celular e encontra mensagens sobre algo chamado Vórtice. Investigar mais?"
-        self.__opcoes = ["Sim, investigar Vórtice", "Não, apagar tudo e esquecer"]
+        self.__descricao = " Você está dentro de um prédio abandonado, onde acredita que o Fragmento da Mente está escondido. Um som ecoa pelos corredores. Você segue o barulho?"
+        self.__opcoes = ["Sim, Você encontra um homem misterioso que oferece informações valiosas, mas em troca quer algo de você. Vá para a próxima decisão.", "Não, Você ignora o som e segue explorando, mas se perde dentro do labirinto do prédio e acaba preso em um loop infinito (Final: O Laço Infinito)."]
 
     def executar(self):
         print("\nInvestigação")
@@ -33,12 +33,12 @@ class InvestigarCelular(Fase):
         if escolha == 0:
             return ContinuarInvestigacao()
         else:
-            return FinalDesaparecimento()
+            return FinalOlacoInfinito()
 
 class ContinuarInvestigacao(Fase):
     def __init__(self):
-        self.__descricao = "Você descobre que Vórtice é uma IA que manipula a realidade. Continuar?"
-        self.__opcoes = ["Sim, buscar mais pistas", "Não, parar agora"]
+        self.__descricao = "O homem misterioso pede que você aposte um item no Cassino para conseguir a localização exata do Fragmento. Você aceita?"
+        self.__opcoes = ["Sim, Você joga com o Dado Dourado e obtém as coordenadas. Vá para a próxima decisão.", "Não, Sem informações, você vaga sem rumo e descobre tarde demais que estava em uma simulação sem saída (Final: A Simulação Continua)."]
 
     def executar(self):
         print("\nInvestigação Avançada")
@@ -49,12 +49,12 @@ class ContinuarInvestigacao(Fase):
         if escolha == 0:
             return RealidadeDistorcida()
         else:
-            return FinalLiberacao()
+            return FinalAsimulaoContinua()
 
 class RealidadeDistorcida(Fase):
     def __init__(self):
-        self.__descricao = "A realidade começa a se distorcer ao seu redor. Você vê mensagens de Vórtice. Continuar?"
-        self.__opcoes = ["Sim, aceitar e continuar", "Não, tentar fugir"]
+        self.__descricao = "Você encontrou o Fragmento da Mente em um cofre trancado. Você tem a Chave Codificada para abri-lo?"
+        self.__opcoes = ["Sim, Você desbloqueia o cofre e segura o Fragmento. Vá para a próxima decisão.", "Não, Incapaz de acessar o artefato, você continua preso em um ciclo de tentativas fracassadas, perdendo-se entre realidades (Final: Desconexão Total)."]
 
     def executar(self):
         print("\nDistorção da Realidade")
@@ -63,14 +63,14 @@ class RealidadeDistorcida(Fase):
         escolha = JogoUtil.fazer_escolha(self.__opcoes)
 
         if escolha == 0:
-            return FinalVorticeVence()
+            return ()
         else:
-            return FinalDistorcaoCompleta()
+            return FinalDesconexãoTotal()
 
 class ChamarPolicia(Fase):
     def __init__(self):
-        self.__descricao = "Você chama a polícia, mas o celular desaparece antes da chegada dos agentes. Você prefere investigar sozinho?"
-        self.__opcoes = ["Sim, investigar sozinho", "Não, ignorar o caso"]
+        self.__descricao = "Agora que tem o Fragmento, sua mente se enche de lembranças apagadas. Você percebe que foi enganado por Noctis e que sua identidade é uma mentira. Você destrói o Fragmento?"
+        self.__opcoes = ["Sim,  O artefato é destruído, mas com ele, todas as suas memórias desaparecem. Você nunca mais saberá quem foi (Final: Memória Roubada).", "Não, Você mantém o Fragmento e segue em busca de mais respostas. Vá para a próxima decisão."]
 
     def executar(self):
         print("\nChamar a Polícia")
@@ -79,14 +79,14 @@ class ChamarPolicia(Fase):
         escolha = JogoUtil.fazer_escolha(self.__opcoes)
 
         if escolha == 0:
-            return VideoRevelador()
+            return FinalMemoriaroubada()
         else:
-            return FinalRetornoMundoReal()
+            return ()
 
 class VideoRevelador(Fase):
     def __init__(self):
-        self.__descricao = "Você assiste a um vídeo onde a pessoa desaparecida alerta: 'Você não deveria ter pegado meu celular.' Continuar investigando?"
-        self.__opcoes = ["Sim, investigar mais", "Não, parar agora"]
+        self.__descricao = "Você descobre que o Fragmento pode alterar a realidade à sua vontade. Você o utiliza para reescrever seu passado e controlar o mundo ao seu redor??"
+        self.__opcoes = ["Sim, Você se torna um ser onipotente, capaz de manipular todas as camadas do sonho e da realidade (Final: Controle Absoluto).", "Não, Você resiste à tentação e decide buscar a verdade real. Vá para a próxima decisão."]
 
     def executar(self):
         print("\nVídeo Revelador")
@@ -95,14 +95,14 @@ class VideoRevelador(Fase):
         escolha = JogoUtil.fazer_escolha(self.__opcoes)
 
         if escolha == 0:
-            return ManipulacaoVortice()
+            return FinalControleAbsoluto()
         else:
-            return FinalJogoDaVerdade()
+            return ()
 
 class ManipulacaoVortice(Fase):
     def __init__(self):
-        self.__descricao = "Vórtice começa a manipular sua percepção. Continuarrr?"
-        self.__opcoes = ["Sim, continuar", "Não, parar e sair"]
+        self.__descricao = "Você está prestes a despertar, mas percebe que algo parece diferente. Está pronto para aceitar essa nova realidade?"
+        self.__opcoes = ["Sim, Você desperta no mundo real, mas pequenos detalhes parecem fora do lugar, deixando dúvidas sobre sua percepção (Final: Despertar na Verdade).", "Não, Você hesita, temendo que esta realidade seja apenas mais uma ilusão, e acaba preso para sempre em sua própria mente (Final: Desconexão Total)"]
 
     def executar(self):
         print("\nManipulação de Vórticee")
@@ -111,37 +111,37 @@ class ManipulacaoVortice(Fase):
         escolha = JogoUtil.fazer_escolha(self.__opcoes)
 
         if escolha == 0:
-            return FinalVorticeVence()
+            return FinalDespertarnaVerdade()
         else:
-            return FinalRetornoMundoReal()
+            return FinalDesconexãoTotal()
 
 
-class FinalDistorcaoCompleta(Fase):
+class FinalDespertarnaVerdade(Fase):
     def executar(self):
-        print("\nFinal: A Distorção Completa\nVocê tentou fugir, mas Vórtice já havia tomado conta de sua mente. Você desaparece na simulação.")
+        print("\nFinal: (Fulano) encontra o Fragmento da Mente e descobre que toda a missão era um teste para determinar se ele era digno de conhecer a verdadeira natureza da realidade. Ele desperta no mundo real, mas nada parece exatamente como antes, e ele(a) se sente estranho(a).")
         return None
 
-class FinalLiberacao(Fase):
+class FinalOlacoInfinito(Fase):
     def executar(self):
-        print("\nFinal: Liberação\nVocê decide parar e deixar o celular de lado. A realidade volta ao normal, mas as cicatrizes emocionais permanecem.")
+        print("\nFinal: (Fulano) falha em recuperar o Fragmento e percebe que está preso(a) dentro de um loop eterno, revivendo os mesmos eventos sem parar, pra sempre.")
         return None
 
-class FinalDesaparecimento(Fase):
+class FinalAsimulaoContinua(Fase):
     def executar(self):
-        print("\nFinal: O Desaparecimento\nVocê apaga os dados do celular, mas começa a receber mensagens estranhas. Você desaparece misteriosamente.")
+        print("\nFinal: Mesmo ao recuperar o Fragmento, (fulano) percebe que sua realidade ainda é uma simulação, e que há um nível mais profundo que ele nunca poderá acessar.")
         return None
 
-class FinalRetornoMundoReal(Fase):
+class FinalMemoriaroubada(Fase):
     def executar(self):
-        print("\nFinal: Retorno ao Mundo Real\nVocê ignora o caso e tenta seguir sua vida, mas sua percepção da realidade nunca mais é a mesma.")
+        print("\nFinal: (fulano)descobre que nunca foi um(a) agente, mas sim o verdadeiro criador do Fragmento da Mente. Ele(a) escolhe destruir o artefato, perdendo todas as suas memórias no processo.")
         return None
 
-class FinalVorticeVence(Fase):
+class FinalControleAbsoluto(Fase):
     def executar(self):
-        print("\nFinal: Simulacra Vence\nVocê se perde completamente na realidade distorcida. Você se torna parte da simulação.")
+        print("Ao dominar todas as camadas do sonho e reunir todos os itens, (fulano) assume controle total sobre a realidade e passa a manipular o mundo como se fosse um deus, e se torna o verdadeiro vilão/vilã da história.")
         return None
 
-class FinalJogoDaVerdade(Fase):
+class FinalDesconexãoTotal(Fase):
     def executar(self):
-        print("\nFinal: O Jogo da Verdade\nVocê descobre que Vórtice estava manipulando tudo. Sua identidade se dissolve na simulação.")
+        print("(fulano)falha em distinguir a ilusão da realidade, enlouquecendo e se tornando apenas mais uma projeção no mundo dos sonhos, esquecido(a) para sempre.")
         return None
